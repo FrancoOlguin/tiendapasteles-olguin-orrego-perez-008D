@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Tienda | Administrador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+    <link href="/assets/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/assets/admin/dashboard.css" rel="stylesheet">
+
+    <style>
+        a.nav-link.nav-menu.nav-active {
+            background-color: #0d6efd; /* Color de fondo azul primario de Bootstrap */
+            color: white !important;              /* Texto en blanco */
+            border-radius: 50rem;       /* Bordes redondeados para darle forma de píldora */
+            padding: 0.375rem 0.75rem; /* Relleno consistente con los enlaces de Bootstrap */
+            display: inline-flex;      /* Asegurar alineación de ícono y texto */
+            align-items: center;
+            gap: 0.5rem;               /* Espaciado entre ícono y texto */
+            text-decoration: none;     /* Sin subrayado */
+            
+        }
+
+        a.nav-link.nav-menu {
+            color: #000000;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .product-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .card-producto {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card-producto:hover {
+            transform: scale(1.05);
+        }
+
+        .precio-descuento {
+            color: #888;
+        }
+
+        .precio-nuevo {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="/#">Company name</a>
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="nav-item text-nowrap">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+            </li>
+        </ul>
+        <div id="navbarSearch" class="navbar-search w-100 collapse">
+            <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!-- ***************** -->
+            <!--        MENU       -->
+            <!-- ***************** -->
+
+            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+                <div class="offcanvas-md offcanvas-start bg-body-tertiary" tabindex="-1" id="sidebarMenu"
+                    aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul class="nav flex-column">
+                            <li class="nav-item mx-2">
+                                <a href="/admin/index.html" class="nav-link nav-menu d-flex gap-2">
+                                    <i class="bi bi-house-fill"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/ordenes/index.html">
+                                    <i class="bi bi-file-earmark"></i>
+                                    Ordenes
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2 nav-active" href="/admin/producto/index.html">
+                                    <i class="bi bi-cart"></i>
+                                    Productos
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/categoria/index.html">
+                                    <i class="bi bi-list-ul"></i>
+                                    Categorías
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/usuario/index.html">
+                                    <i class="bi bi-people"></i>
+                                    Usuarios
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/reporte/index.html">
+                                    <i class="bi bi-graph-up"></i>
+                                    Reportes
+                                </a>
+                            </li>
+                         
+                        </ul>
+
+                        <hr class="my-3">
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/perfil/index.html">
+                                    <i class="bi bi-person-circle"></i>
+                                    Perfil
+                                </a>
+                            </li>
+                        </ul>
+
+                        <hr class="my-3">
+
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item mt-2 mx-2">
+                                <a class="mx-4 text-center d-flex gap-2 btn btn-dark" href="/">
+                                    <i class="bi bi-shop"></i>
+                                    <strong>Tienda</strong>
+                                </a>
+                            </li>
+                            <li class="nav-item mt-2 mx-2">
+                                <a class="mx-4 text-center d-flex gap-2 btn btn-danger" href="/iniciar-sesion.html">
+                                    <i class="bi bi-door-closed"></i>
+                                    Cerrar Sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ***************** -->
+            <!--      FIN MENU     -->
+            <!-- ***************** -->
+
+            <!-- ***************** -->
+            <!-- contenido interno -->
+            <!-- ***************** -->
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="mt-4">
+                    <h4 class="card-title">Productos</h4>
+                    <p class="card-text">Listado de productos</p>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu" aria-current="page" href="/admin/producto/index.html">Listado de productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu" aria-current="page" href="/admin/producto/index-critico.html">Listado de productos criticos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu active" aria-current="page" href="/admin/producto/index-formato.html">Formato tarjeta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu" aria-current="page" href="/admin/producto/reporte.html">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu" href="/admin/producto/nuevo.html">Nuevo producto</a>
+                        </li>
+                    </ul>
+
+                    <div class="row my-3" id="productContainer">
+                        <!-- Productos serán generados aquí -->
+                    </div>
+                </div>
+            </main>
+
+            <!-- ********************* -->
+            <!-- fin contenido interno -->
+            <!-- ********************* -->
+        </div>
+    </div>
+    <script src="/assets/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const productos = [
+            {
+                id: 1,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "The Legend of Zelda",
+                categoria: "Aventura",
+                descripcion: "Juego de acción y aventura con mundo abierto.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/zelda.html"
+            },
+            {
+                id: 2,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Super Mario Odyssey",
+                categoria: "Plataforma",
+                descripcion: "Aventura de plataformas 3D en varios mundos.",
+                precio_descuento: 59.99,
+                precio_nuevo: 49.99,
+                link: "productos/mario.html"
+            },
+            {
+                id: 3,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Minecraft",
+                categoria: "Sandbox",
+                descripcion: "Juego de construcción y aventuras en mundo abierto.",
+                precio_descuento: 29.99,
+                precio_nuevo: 26.95,
+                link: "productos/minecraft.html"
+            },
+            {
+                id: 4,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Fortnite",
+                categoria: "Battle Royale",
+                descripcion: "Juego multijugador masivo en línea de supervivencia.",
+                precio_descuento: 9.99,
+                precio_nuevo: 0.00,
+                link: "productos/fortnite.html"
+            },
+            {
+                id: 5,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Overwatch",
+                categoria: "Shooter",
+                descripcion: "Juego de disparos multijugador en equipo.",
+                precio_descuento: 29.99,
+                precio_nuevo: 19.99,
+                link: "productos/overwatch.html"
+            },
+            {
+                id: 6,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Red Dead Redemption 2",
+                categoria: "Aventura",
+                descripcion: "Juego de acción y aventuras en el lejano oeste.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/red_dead_redemption.html"
+            },
+            {
+                id: 7,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Among Us",
+                categoria: "Misterio",
+                descripcion: "Juego multijugador de deducción social.",
+                precio_descuento: 6.99,
+                precio_nuevo: 4.99,
+                link: "productos/among_us.html"
+            },
+            {
+                id: 8,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "The Witcher 3",
+                categoria: "RPG",
+                descripcion: "Juego de rol de acción en un mundo abierto.",
+                precio_descuento: 49.99,
+                precio_nuevo: 39.99,
+                link: "productos/witcher3.html"
+            },
+            {
+                id: 9,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Animal Crossing",
+                categoria: "Simulación",
+                descripcion: "Juego de simulación de vida en una isla.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/animal_crossing.html"
+            },
+            {
+                id: 10,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Call of Duty: Warzone",
+                categoria: "Shooter",
+                descripcion: "Juego de disparos y estrategia multijugador.",
+                precio_descuento: 19.99,
+                precio_nuevo: 0.00,
+                link: "productos/warzone.html"
+            },
+            {
+                id: 11,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Hollow Knight",
+                categoria: "Plataforma",
+                descripcion: "Juego de plataformas y aventuras en 2D.",
+                precio_descuento: 19.99,
+                precio_nuevo: 14.99,
+                link: "productos/hollow_knight.html"
+            },
+            {
+                id: 12,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Dark Souls III",
+                categoria: "RPG",
+                descripcion: "Juego de rol de acción en un entorno oscuro.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/dark_souls_3.html"
+            },
+            {
+                id: 13,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "FIFA 21",
+                categoria: "Deportes",
+                descripcion: "Simulador de fútbol con modos de juego realistas.",
+                precio_descuento: 59.99,
+                precio_nuevo: 49.99,
+                link: "productos/fifa21.html"
+            },
+            {
+                id: 14,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Mortal Kombat 11",
+                categoria: "Lucha",
+                descripcion: "Juego de lucha con gráficos avanzados.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/mortal_kombat_11.html"
+            },
+            {
+                id: 15,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "The Sims 4",
+                categoria: "Simulación",
+                descripcion: "Juego de simulación de vida con creación de personajes.",
+                precio_descuento: 49.99,
+                precio_nuevo: 39.99,
+                link: "productos/sims4.html"
+            },
+            {
+                id: 16,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Assassin's Creed Valhalla",
+                categoria: "Aventura",
+                descripcion: "Juego de acción y aventuras ambientado en la era vikinga.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/ac_valhalla.html"
+            },
+            {
+                id: 17,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Cuphead",
+                categoria: "Plataforma",
+                descripcion: "Juego de plataformas inspirado en dibujos animados.",
+                precio_descuento: 29.99,
+                precio_nuevo: 19.99,
+                link: "productos/cuphead.html"
+            },
+            {
+                id: 18,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Star Wars Jedi: Fallen Order",
+                categoria: "Aventura",
+                descripcion: "Juego de acción y aventuras en el universo Star Wars.",
+                precio_descuento: 49.99,
+                precio_nuevo: 39.99,
+                link: "productos/sw_jedi_fallen_order.html"
+            },
+            {
+                id: 19,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Ghost of Tsushima",
+                categoria: "Aventura",
+                descripcion: "Juego de acción y aventuras ambientado en el Japón feudal.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/ghost_of_tsushima.html"
+            },
+            {
+                id: 20,
+                imagen: "https://via.placeholder.com/400x300",
+                juego: "Cyberpunk 2077",
+                categoria: "RPG",
+                descripcion: "Juego de rol y acción en un futuro distópico.",
+                precio_descuento: 69.99,
+                precio_nuevo: 59.99,
+                link: "productos/cyberpunk_2077.html"
+            }
+        ];
+    
+        const productContainer = document.getElementById('productContainer');
+    
+        productos.forEach(producto => {
+            const productHTML = `
+                <div class="col-md-3 mb-4">
+                    <div class="card card-producto" onclick="window.location='${producto.link}'">
+                        <img src="${producto.imagen}" class="card-img-top" alt="${producto.juego}">
+                        <div class="card-body">
+                            <a href="/${producto.link}" class="link-none">
+                                <p class="card-title">${producto.juego}</p>
+                            </a>
+                            <div class="d-flex flex-column mb-3">
+                                <span class="precio-descuento text-decoration-line-through">$${producto.precio_descuento.toFixed(2)}</span>
+                                <span class="precio-nuevo fw-bolder">$${producto.precio_nuevo.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            productContainer.innerHTML += productHTML;
+        });
+    </script>
+</body>
+</html>

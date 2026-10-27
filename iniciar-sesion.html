@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .product-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        
+        body {
+            background: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Superior -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="https://via.placeholder.com/40" alt="Logo" class="d-inline-block align-text-top">
+            </a>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarTopContent">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+            <div class="d-flex">
+                <a href="/iniciar-sesion.html" class="btn btn-outline-primary ms-2">Iniciar Sesión</a>
+                <a href="/crear-sesion.html" class="btn btn-primary ms-2">Crear Cuenta</a>
+            </div>
+        </div>
+    </nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="card">
+            <div class="card-body row">
+
+                <div class="col-md-6 d-none d-md-block">
+                    <img src="https://via.placeholder.com/600x400" class="product-img" alt="Producto">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+                    <div id="error" hidden class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>¡Error!</strong> Usuarios o Contraseña mal ingresados.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <a href="/crear-sesion.html">¿No tienes cuenta? Regístrate aquí</a>
+                            <a href="/recuperar-contrasena.html" class="float-end">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100"><strong>INICIAR SESIÓN</strong></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- contenido en el centro -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-3 text-center bg-info">
+                <div class="card-body">
+                    <h5 class="card-title">Acceso directo</h5>
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                    <a href="/cliente/index.html" class="btn btn-danger"><strong>ENTRAR COMO CLIENTE</strong></a>
+                    <a href="/admin/index.html" class="btn btn-dark"><strong>ENTRAR COMO ADMINISTRADOR</strong></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var alertError = document.getElementById('error');
+
+        // Validación de las credenciales
+        if (username === 'admin' && password === '12345') {
+            window.location.href = 'admin.html'; // Redirigir a la página de administrador
+        } else if (username === 'usuario' && password === '12345') {
+            window.location.href = 'usuario.html'; // Redirigir a la página de usuario
+        } else {
+            alertError.removeAttribute('hidden');
+            // alert('Credenciales incorrectas. Inténtalo de nuevo.');
+        }
+    });
+</script>
+
+</body>
+</html>

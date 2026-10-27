@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Tienda | Administrador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+    <link href="/assets/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/style.css">
+
+    <link href="/assets/admin/dashboard.css" rel="stylesheet">
+
+    <style>
+        a.nav-link.nav-menu.nav-active {
+            background-color: #0d6efd;
+            /* Color de fondo azul primario de Bootstrap */
+            color: white !important;
+            /* Texto en blanco */
+            border-radius: 50rem;
+            /* Bordes redondeados para darle forma de píldora */
+            padding: 0.375rem 0.75rem;
+            /* Relleno consistente con los enlaces de Bootstrap */
+            display: inline-flex;
+            /* Asegurar alineación de ícono y texto */
+            align-items: center;
+            gap: 0.5rem;
+            /* Espaciado entre ícono y texto */
+            text-decoration: none;
+            /* Sin subrayado */
+
+        }
+
+        a.nav-link.nav-menu {
+            color: #000000;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .product-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        body {
+            background: #f3f3f3;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+            /* Color amarillo para las estrellas */
+        }
+
+        a.nav-link.nav-menu.nav-active {
+            background-color: #0d6efd; /* Color de fondo azul primario de Bootstrap */
+            color: white !important;              /* Texto en blanco */
+            border-radius: 50rem;       /* Bordes redondeados para darle forma de píldora */
+            padding: 0.375rem 0.75rem; /* Relleno consistente con los enlaces de Bootstrap */
+            display: inline-flex;      /* Asegurar alineación de ícono y texto */
+            align-items: center;
+            gap: 0.5rem;               /* Espaciado entre ícono y texto */
+            text-decoration: none;     /* Sin subrayado */
+            
+        }
+
+        a.nav-link.nav-menu {
+            color: #000000;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .dashboard-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 8px;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-icon {
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+
+        .dashboard-section {
+            margin-top: 20px;
+        }
+
+        .card-primary {
+            background-color: #0d6efd; /* Bootstrap primary color */
+        }
+
+        .card-success {
+            background-color: #198754; /* Bootstrap success color */
+        }
+
+        .card-warning {
+            background-color: #ffc107; /* Bootstrap warning color */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="/#">Company name</a>
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="nav-item text-nowrap">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+            </li>
+        </ul>
+        <div id="navbarSearch" class="navbar-search w-100 collapse">
+            <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- ***************** -->
+            <!--        MENU       -->
+            <!-- ***************** -->
+
+            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+                <div class="offcanvas-md offcanvas-start bg-body-tertiary" tabindex="-1" id="sidebarMenu"
+                    aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul class="nav flex-column">
+                            <li class="nav-item mx-2">
+                                <a href="/admin/index.html" class="nav-link nav-menu d-flex gap-2">
+                                    <i class="bi bi-house-fill"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/ordenes/index.html">
+                                    <i class="bi bi-file-earmark"></i>
+                                    Ordenes
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/producto/index.html">
+                                    <i class="bi bi-cart"></i>
+                                    Productos
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/categoria/index.html">
+                                    <i class="bi bi-list-ul"></i>
+                                    Categorías
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2 nav-active" href="/admin/usuario/index.html">
+                                    <i class="bi bi-people"></i>
+                                    Usuarios
+                                </a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/reporte/index.html">
+                                    <i class="bi bi-graph-up"></i>
+                                    Reportes
+                                </a>
+                            </li>
+                         
+                        </ul>
+
+                        <hr class="my-3">
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link nav-menu d-flex gap-2" href="/admin/perfil/index.html">
+                                    <i class="bi bi-person-circle"></i>
+                                    Perfil
+                                </a>
+                            </li>
+                        </ul>
+
+                        <hr class="my-3">
+
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item mt-2 mx-2">
+                                <a class="mx-4 text-center d-flex gap-2 btn btn-dark" href="/">
+                                    <i class="bi bi-shop"></i>
+                                    <strong>Tienda</strong>
+                                </a>
+                            </li>
+                            <li class="nav-item mt-2 mx-2">
+                                <a class="mx-4 text-center d-flex gap-2 btn btn-danger" href="/iniciar-sesion.html">
+                                    <i class="bi bi-door-closed"></i>
+                                    Cerrar Sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ***************** -->
+            <!--        MENU       -->
+            <!-- ***************** -->
+
+            <!-- ***************** -->
+            <!-- contenido interno -->
+            <!-- ***************** -->
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                <div class="mt-4">
+                    <div class="col-sm-12">
+                        <h4>
+                            <a href="/admin/usuario/" class="text-secondary me-2 decoration-none">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                            </a>
+                            Perfil usuario #3312 - <strong>Luna Luna</strong>
+                        </h4>
+                    </div>
+                    <!-- <h4 class="card-title">Productos</h4> -->
+                    <!-- <p class="card-text">Listado de productos</p> -->
+                    <!-- <h2>Section title</h2> -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu active" aria-current="page" href="/admin/usuario/3312/">
+                                #3312 - <strong>Luna Luna</strong>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-menu" href="/admin/usuario/3312/historial.html">Historial de compras</a>
+                        </li>
+                    </ul>
+
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="row g-0 mb-3">
+                                        <div class="col-4 d-flex align-items-center justify-content-center">
+                                            <!-- <img src="https://via.placeholder.com/80" alt="Avatar" class="avatar rounded-pill"> -->
+                                            <img src="/assets/img/Luna.png" alt="Avatar" class="avatar rounded-pill">
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Luna Luna</h5>
+                                                <p class="card-text">correo@ejemplo.com</p>
+                                                <h6><span class="badge bg-primary">ADMINISTRADOR</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-grid gap-2 mx-4">
+                                                <a class="btn btn-secondary" href="/admin/usuario/3312/edit.html">Editar</a>
+                                                <!-- <button class="btn btn-primary" type="button">Button</button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="col-md-8 row">
+                                <div class="col-6 col-md-6 mb-3">
+                                    <div class="card text-white dashboard-card card-success">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="dashboard-icon">
+                                                <i class="bi bi-basket-fill"></i>
+                                                </div>
+                                                <div class="ms-5">
+                                                    <h5 class="card-title">Compras mes</h5>
+                                                    <h3 class="card-text">3</h3>
+                                                </div>
+                                            </div>
+                                            <p class="card-text text-center mt-3">Mes anterior <strong>6 compras</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-6 mb-3">
+                                    <div class="card text-white dashboard-card card-success">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="dashboard-icon">
+                                                    <i class="bi bi-cart-check"></i>
+                                                </div>
+                                                <div class="ms-5">
+                                                    <h5 class="card-title">Compras realizadas</h5>
+                                                    <h3 class="card-text">150</h3>
+                                                </div>
+                                            </div>
+                                            <p class="card-text text-center mt-3">Este año <strong>10 nuevos ingresos</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-6 mb-3">
+                                    <div class="card text-white bg-succes card-primary">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="dashboard-icon">
+                                                    <i class="bi bi-cart-fill"></i>
+                                                </div>
+                                                <div class="ms-5">
+                                                    <h5 class="card-title">Monto recaudado</h5>
+                                                    <h3 class="card-text">$ 130.000</h3>
+                                                </div>
+                                            </div>
+                                            <!-- <p class="card-text text-center mt-3">Probabilidad de aumento: <strong>20%</strong></p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-6 mb-3">
+                                    <div class="card text-white bg-succes card-primary">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="dashboard-icon">
+                                                    <i class="bi bi-cart-fill"></i>
+                                                </div>
+                                                <div class="ms-5">
+                                                    <h5 class="card-title">Monto total recaudado</h5>
+                                                    <h3 class="card-text">$ 5.450.000</h3>
+                                                </div>
+                                            </div>
+                                            <!-- <p class="card-text text-center mt-3">Probabilidad de aumento: <strong>20%</strong></p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- ***************** -->
+            <!-- contenido interno -->
+            <!-- ***************** -->
+        </div>
+    </div>
+    <script src="/assets/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
