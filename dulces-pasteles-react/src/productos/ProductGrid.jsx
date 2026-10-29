@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ProductCard } from './ProductCard';
 import { ProductModal } from './ProductModal';
 import { useCarrito } from '../context/CarritoContext';
@@ -7,8 +8,17 @@ export function ProductGrid() {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+  const [searchParams] = useSearchParams();
+  const categoriaUrl = searchParams.get('cat');
+  
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todas');
   const { busqueda } = useCarrito();
+
+  useEffect(() => {
+    if (categoriaUrl) {
+      setCategoriaSeleccionada(categoriaUrl);
+    }
+  }, [categoriaUrl]);
 
   useEffect(() => {
     fetch('http://localhost:4000/productos')
