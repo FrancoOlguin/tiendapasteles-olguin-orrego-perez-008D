@@ -1,4 +1,8 @@
+import { useCarrito } from '../context/CarritoContext';
+
 export function ProductCard({ producto }) {
+  const { agregarAlCarrito } = useCarrito();
+
   const precioFormateado = new Intl.NumberFormat('es-CL', {
     style: 'currency',
     currency: 'CLP'
@@ -7,7 +11,7 @@ export function ProductCard({ producto }) {
   return (
     <div className="card card-producto h-100 shadow-sm border-0 p-3">
       <img 
-        src={producto.imagen} 
+        src={producto.imagen || 'https://via.placeholder.com/300x200?text=Pastel'} 
         alt={producto.nombre} 
         className="card-img-top rounded"
         style={{ height: '180px', objectFit: 'cover' }}
@@ -21,7 +25,10 @@ export function ProductCard({ producto }) {
         
         <div className="d-flex justify-content-between align-items-center mt-3">
           <span className="precio-nuevo fw-bold">{precioFormateado}</span>
-          <button className="btn btn-warning text-white fw-bold px-3">
+          <button 
+            className="btn btn-warning text-white fw-bold px-3"
+            onClick={() => agregarAlCarrito(producto)}
+          >
             Agregar
           </button>
         </div>

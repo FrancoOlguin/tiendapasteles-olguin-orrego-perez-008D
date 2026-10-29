@@ -4,6 +4,10 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.bg-cafe-claro {
+  background-color: rgb(144, 80, 20);
+}
+
 .text-chocolate {
   color: #5c3a21;
 }
