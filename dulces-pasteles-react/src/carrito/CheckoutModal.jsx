@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { useCarrito } from '../context/CarritoContext';
+import { validarRun, sanitizarEntrada } from '../utils/validations';
 
 export function CheckoutModal({ show, onClose }) {
   const { carrito, precioTotal, vaciarCarrito } = useCarrito();
   const [paso, setPaso] = useState('formulario');
   const [numeroOrden, setNumeroOrden] = useState('');
+  const [errorRun, setErrorRun] = useState('');
 
   const [formData, setFormData] = useState({
     nombre: '',
+    run: '',
     email: '',
     telefono: '',
     direccion: '',
@@ -23,14 +26,27 @@ export function CheckoutModal({ show, onClose }) {
   }).format(precioTotal);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: sanitizarEntrada(value)
     });
+
+    if (name === 'run') {
+      setErrorRun('');
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validarRun(formData.run)) {
+      setErrorRun('El RUN ingresado no es válido (verifique el dígito verificador y formato).');
+      return;
+    }
+
+    setErrorRun('');
     const ordenGenerada = Math.floor(100000 + Math.random() * 900000);
     setNumeroOrden(ordenGenerada);
     setPaso('confirmacion');
@@ -39,6 +55,15 @@ export function CheckoutModal({ show, onClose }) {
   const handleFinalizar = () => {
     vaciarCarrito();
     setPaso('formulario');
+    setFormData({
+      nombre: '',
+      run: '',
+      email: '',
+      telefono: '',
+      direccion: '',
+      metodoPago: 'webpay',
+      notas: ''
+    });
     onClose();
   };
 
@@ -69,6 +94,20 @@ export function CheckoutModal({ show, onClose }) {
                       value={formData.nombre}
                       onChange={handleChange}
                     />
+                  </div>
+
+                  <div className="col-12 col-md-6">
+                    <label className="form-label fw-bold text-dark">RUN (Ej: 12345678-9)</label>
+                    <input
+                      type="text"
+                      className={`form-control ${errorRun ? 'is-invalid' : ''}`}
+                      name="run"
+                      required
+                      placeholder="12.345.678-9"
+                      value={formData.run}
+                      onChange={handleChange}
+                    />
+                    {errorRun && <div className="invalid-feedback">{errorRun}</div>}
                   </div>
 
                   <div className="col-12 col-md-6">
@@ -109,7 +148,7 @@ export function CheckoutModal({ show, onClose }) {
                     </select>
                   </div>
 
-                  <div className="col-12">
+                  <div className="col-12 col-md-6">
                     <label className="form-label fw-bold text-dark">Dirección de Despacho</label>
                     <input
                       type="text"
@@ -161,6 +200,7 @@ export function CheckoutModal({ show, onClose }) {
 
                 <div className="bg-light p-3 rounded mb-4 text-start mx-auto" style={{ maxWidth: '450px' }}>
                   <p className="mb-1 small"><strong>Resumen del envío:</strong></p>
+                  <p className="mb-1 small text-muted"><strong>RUN:</strong> {formData.run}</p>
                   <p className="mb-1 small text-muted"><strong>Dirección:</strong> {formData.direccion}</p>
                   <p className="mb-1 small text-muted"><strong>Contacto:</strong> {formData.telefono}</p>
                   <p className="mb-0 small text-muted"><strong>Total abonado:</strong> {totalFormateado}</p>
