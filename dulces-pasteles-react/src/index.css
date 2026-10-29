@@ -1,0 +1,68 @@
+body {
+  background-color: #fff8fa;
+  color: #3a2e2b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-chocolate {
+  color: #5c3a21;
+}
+
+.bg-chocolate {
+  background-color: #5c3a21;
+}
+
+.btn-chocolate {
+  background-color: #5c3a21;
+  color: white;
+  border: none;
+}
+
+.btn-chocolate:hover {
+  background-color: #4a2e1a;
+  color: white;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.link-none {
+    text-decoration: none;
+    color: black;
+}
+
+.link-none:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+.precio-nuevo {
+    color: #d97706; 
+    font-size: 1.3rem; 
+}
+
+.card-producto {
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #ef9cb6 !important;
+}
+
+.card-producto:hover {
+    box-shadow: 0 6px 12px rgba(92, 58, 33, 0.15);
+    cursor: pointer;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "|";
+    color: #6c757d;
+    padding: 0 8px;
+}
+
+.breadcrumb-item + .breadcrumb-item:last-child::before {
+    content: ">";
+    color: #6c757d;
+    padding: 0 8px;
+}
