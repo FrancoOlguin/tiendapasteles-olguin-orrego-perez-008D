@@ -18,7 +18,7 @@
       "precio": 85000,
       "stock": 8,
       "descripcion": "Irresistible torta de panqueque rellena de intensa crema trufada de chocolate y ganache.",
-      "imagen": "https://via.placeholder.com/300x200?text=Panqueque+Trufa"
+      "imagen": "/img/panquequetrufa.jpeg"
     },
     {
       "id": "3",
@@ -28,7 +28,7 @@
       "precio": 50000,
       "stock": 12,
       "descripcion": "Bizcocho de cacao húmedo rústico combinado con refrescante crema de menta y cobertura de chocolate amargo.",
-      "imagen": "https://via.placeholder.com/300x200?text=Chocolate+Menta"
+      "imagen": "/img/chocolatementa.jpeg"
     },
     {
       "id": "4",
@@ -38,7 +38,7 @@
       "precio": 45000,
       "stock": 15,
       "descripcion": "Esponjoso bizcocho tradicional relleno de suave crema pastelera, manjar y láminas de duraznos al jugo.",
-      "imagen": "https://via.placeholder.com/300x200?text=Torta+Durazno"
+      "imagen": "/img/tortadurazno.jpeg"
     },
     {
       "id": "5",
@@ -48,7 +48,7 @@
       "precio": 35000,
       "stock": 10,
       "descripcion": "Clásica torta húmeda remojada en mezcla artesanal de tres leches, cubierta con suave merengue dorado.",
-      "imagen": "https://via.placeholder.com/300x200?text=Torta+3+Leches"
+      "imagen": "/img/torta3leches.jpeg"
     },
     {
       "id": "6",
@@ -58,7 +58,7 @@
       "precio": 75000,
       "stock": 6,
       "descripcion": "Bizcocho crocante de semillas de amapola relleno de abundante manjar de tarro y crema de almendras.",
-      "imagen": "https://via.placeholder.com/300x200?text=Torta+Amapola"
+      "imagen": "/img/tortaamapola.jpeg"
     },
     {
       "id": "7",
@@ -68,7 +68,7 @@
       "precio": 75000,
       "stock": 8,
       "descripcion": "Combinación perfecta de frambuesas naturales ácidas, crema Chantilly y capas de bizcocho de vainilla.",
-      "imagen": "https://via.placeholder.com/300x200?text=Torta+Frambuesa"
+      "imagen": "/img/tortaframbuesa.jpeg"
     },
     {
       "id": "8",
@@ -78,7 +78,7 @@
       "precio": 20000,
       "stock": 14,
       "descripcion": "Masa quebrada casera horneada con una mezcla surtida de frutos del bosque, durazno y miga crocante.",
-      "imagen": "https://via.placeholder.com/300x200?text=Kuchen+Mixto"
+      "imagen": "/img/kuchen.jpeg"
     },
     {
       "id": "9",
@@ -88,7 +88,7 @@
       "precio": 17000,
       "stock": 10,
       "descripcion": "Postre frío y ligero elaborado a base de mousse de yogurt natural con cobertura de mermelada de frutos rojos.",
-      "imagen": "https://via.placeholder.com/300x200?text=Torta+de+Yogurt"
+      "imagen": "/img/tortayogurt.jpeg"
     },
     {
       "id": "10",
@@ -98,7 +98,7 @@
       "precio": 25000,
       "stock": 12,
       "descripcion": "Fresca selección de frutas de la estación sobre una base de bizcocho esponjoso y crema diplomat.",
-      "imagen": "https://via.placeholder.com/300x200?text=Torta+Frutal"
+      "imagen": "/img/tortafrutal.jpeg"
     }
   ],
   "usuarios": [],
